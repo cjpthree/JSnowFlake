@@ -10,7 +10,7 @@ ref: https://blog.csdn.net/u013970991/article/details/69388427
 在项目pom.xml中添加依赖
 <dependency>
     <groupId>com.jarxi</groupId>
-    <artifactId>JSnowFlake</artifactId>
+    <artifactId>jsnowflake</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```

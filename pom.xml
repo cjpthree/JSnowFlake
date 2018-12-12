@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>jsnowflake</name>
+    <url>https://github.com/cjpthree/JSnowFlake</url>
     <description>JSnowFlake</description>
 
   <properties>
@@ -149,7 +150,7 @@
             <configuration>
                 <serverId>oss</serverId>
                 <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
         </plugin>
       </plugins>

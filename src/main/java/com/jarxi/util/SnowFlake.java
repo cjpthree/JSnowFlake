@@ -4,7 +4,6 @@ package com.jarxi.util;
  * twitter的snowflake算法 -- java实现
  * 
  * @author beyond
- * @date 2016/11/26
  */
 public class SnowFlake {
 
@@ -53,7 +52,7 @@ public class SnowFlake {
     /**
      * 产生下一个ID
      *
-     * @return
+     * @return a type long ID
      */
     public synchronized long nextId() {
         long currStmp = getNewstmp();
