@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.jarxi</groupId>
+    <groupId>com.jarxi</groupId>
     <artifactId>jsnowflake</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -12,11 +12,11 @@
     <url>https://github.com/cjpthree/JSnowFlake</url>
     <description>JSnowFlake</description>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <licenses>
         <license>
@@ -50,6 +50,7 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
     <profiles>
         <profile>
             <id>release</id>

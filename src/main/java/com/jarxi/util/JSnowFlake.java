@@ -122,7 +122,7 @@ public class JSnowFlake {
         System.out.println("times " + times + " milliseconds " + (end - start));
     }
 
-    public static void baseTest() {
+    private static void baseTest() {
         JSnowFlake jsnowFlake = new JSnowFlake();
         System.out.println("Curr Time 0x" + Long.toHexString((jsnowFlake.getNewstmp() - START_STMP)));
         System.out.println("Sequence 0x" + Long.toHexString(jsnowFlake.sequence & MAX_SEQUENCE));
