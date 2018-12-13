@@ -41,7 +41,7 @@ public class JSnowFlakeTest {
                 set.add(jsnowFlake.nextId());
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -120,7 +120,7 @@ public class JSnowFlakeTest {
 
     // 测试时钟调整的影响，java中设置时钟不能影响currentTimeMillis()
     // 手动用shell命令'date -s hh:mm:ss'调整时钟也能测试
-    @Test
+    //@Test
     public void testClockRepetition() {
         long itimes = 10;
         long jtimes = times;
