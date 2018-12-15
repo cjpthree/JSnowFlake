@@ -10,21 +10,21 @@ public class SnowFlake {
     /**
      * 起始的时间戳
      */
-    private final static long START_STMP = 1480166465631L;
+    public final static long START_STMP = 1480166465631L;
 
     /**
      * 每一部分占用的位数
      */
-    private final static long SEQUENCE_BIT = 12; //序列号占用的位数
-    private final static long MACHINE_BIT = 5;   //机器标识占用的位数
-    private final static long DATACENTER_BIT = 5;//数据中心占用的位数
+    public final static long SEQUENCE_BIT = 12; //序列号占用的位数
+    public final static long MACHINE_BIT = 5;   //机器标识占用的位数
+    public final static long DATACENTER_BIT = 5;//数据中心占用的位数
 
     /**
      * 每一部分的最大值
      */
-    private final static long MAX_DATACENTER_NUM = -1L ^ (-1L << DATACENTER_BIT);
-    private final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
-    private final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
+    public final static long MAX_DATACENTER_NUM = -1L ^ (-1L << DATACENTER_BIT);
+    public final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
+    public final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
 
     /**
      * 每一部分向左的位移

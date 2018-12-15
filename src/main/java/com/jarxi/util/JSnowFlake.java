@@ -22,20 +22,20 @@ public class JSnowFlake {
     /**
      * 起始的时间戳 2018/1/1
      */
-    private final static long START_STMP = 1514736000L;
+    public final static long START_STMP = 1514736000L;
 
     /**
      * 每一部分占用的位数
      * 时间戳占32 bit，秒为单位
      */
-    private final static long SEQUENCE_BIT = 22; //序列号占用的位数
-    private final static long MACHINE_BIT = 10;   //机器标识占用的位数
+    public final static long SEQUENCE_BIT = 22; //序列号占用的位数
+    public final static long MACHINE_BIT = 10;   //机器标识占用的位数
 
     /**
      * 每一部分的最大值
      */
-    private final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
-    private final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
+    public final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
+    public final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
 
     /**
      * 每一部分向左的位移
@@ -45,6 +45,8 @@ public class JSnowFlake {
 
     private long machineId;     //机器标识
     private long sequence = new SecureRandom().nextLong(); //序列号从一个随机数开始
+    private long lastStmp = -1L;//上一次时间戳
+    private long firstSeq = sequence;//每秒第一个序列号
 
     public JSnowFlake() {
         this(createMachineIdentifier());
@@ -68,10 +70,29 @@ public class JSnowFlake {
         // 序列号自增
         sequence++;
         sequence &= MAX_SEQUENCE;
+        if (currStmp == lastStmp) {
+            //同一秒的序列数已经达到最大
+            if (sequence == firstSeq) {
+                currStmp = getNextSecond();
+            }
+        } else {
+            //不同秒内，记录第一个序列号
+            firstSeq = sequence;
+        }
+
+        lastStmp = currStmp;
 
         return (currStmp - START_STMP) << TIMESTMP_LEFT //时间戳部分
                 | sequence << SEQUENCE_LEFT             //序列号部分
                 | machineId;                            //机器标识部分
+    }
+
+    private long getNextSecond() {
+        long second = getNewstmp();
+        while (second <= lastStmp) {
+            second = getNewstmp();
+        }
+        return second;
     }
 
     private long getNewstmp() {
